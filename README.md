@@ -165,8 +165,8 @@ Delivery time: **5–7 days** depending on scope.
 
 ## 📧 Contact / Portfolio (optional to fill later)
 
-- LinkedIn: _your link here_  
-- Email: _your contact here_  
+- LinkedIn: https://www.linkedin.com/in/bmcghee98/
+- Email: brianamcghee98@gmail.com
 
 ---
 
