@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "ignoreDeprecations": "6.0",
+    "moduleResolution": "Node",
+    "strict": true,
+    "esModuleInterop": true,
+    "types": ["node", "cucumber"],
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "outDir": "dist",
+  },
+  "include": [
+    "features/**/*.ts",
+    "pages/**/*.ts",
+    "utils/**/*.ts",
+    "hooks/**/*.ts",
+    "config/**/*.ts",
+    "global.d.ts"
+  ]
+}

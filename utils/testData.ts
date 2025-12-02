@@ -1,6 +1,8 @@
+import { USER_EMAIL, USER_PASSWORD } from '../config/env';
+
 export const testData = {
   validUser: {
-    email: process.env.USER_EMAIL || 'test@example.com',
-    password: process.env.USER_PASSWORD || 'password123'
+    email: USER_EMAIL,
+    password: USER_PASSWORD,
   }
 };

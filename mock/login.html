@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mock Login</title>
+</head>
+<body>
+  <div>
+    <input id="email" type="text" placeholder="Email" />
+    <input id="password" type="password" placeholder="Password" />
+
+    <div id="submit" style="
+      width: 120px;
+      padding: 10px;
+      background: #4CAF50;
+      color: white;
+      text-align: center;
+      cursor: pointer;
+      margin-top: 10px;
+    ">
+      Login
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('submit').addEventListener('click', function () {
+      window.location.href = "dashboard.html";
+    });
+  </script>
+</body>
+</html>
