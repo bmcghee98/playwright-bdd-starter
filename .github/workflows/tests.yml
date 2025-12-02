@@ -1,0 +1,29 @@
+name: Playwright BDD Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Mock Server (Background)
+        run: |
+          nohup npx http-server ./mock -p 3001 &
+          sleep 2
+
+      - name: Run Tests
+        run: npx cucumber-js --publish-quiet

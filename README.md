@@ -1,180 +1,152 @@
-# Playwright + Cucumber BDD Automation Framework (TypeScript)
+# Playwright + Cucumber BDD Starter
+**A senior-level, scalable UI automation framework built with TypeScript, Playwright, and Cucumber BDD — used as the foundation for my QA automation consulting work.**
 
-A clean, modern, senior-level QA automation framework using:
-
-- **Playwright**
-- **Cucumber BDD**
-- **TypeScript**
-- **Page Object Model**
-- **GitHub Actions CI/CD**
-- **Environment-based config**
-- **Reusable utilities & hooks**
-
-This repo is structured as a **starter framework** for:
-- SaaS teams who need fast, clean automation  
-- Startups migrating to Playwright or Cucumber  
-- Consultants delivering 5–7 day automation sprints  
-- Senior QA engineers demonstrating architecture skills  
-
-It shows how to build scalable UI + API automation with clear separation of concerns, maintainability, and CI-ready structure.
+![build](https://img.shields.io/badge/Build-Passing-brightgreen)
+![playwright](https://img.shields.io/badge/Playwright-1.x-blueviolet)
+![cucumber](https://img.shields.io/badge/Cucumber-BDD-8.x-23b14d)
+![license](https://img.shields.io/badge/License-MIT-lightgrey)
 
 ---
 
-## 🚀 Features
+## 🚀 Overview
 
-- Full **Cucumber BDD** setup  
-- **Page Object Model** organization  
-- **Global hooks** for browser lifecycle  
-- **Environment variable support**  
-- **Reusable test data + helpers**  
-- **Parallel execution** through Playwright projects  
-- **HTML + JSON reporting**  
-- **CI pipeline** with GitHub Actions  
-- Clean, understandable folder structure  
+This repository is a **clean, production-ready automation framework** powered by:
+
+- **Playwright** (modern browser automation)
+- **Cucumber BDD** (business-readable test scenarios)
+- **TypeScript** (strong typing and maintainability)
+- **Page Object Model (POM)**
+- **World injection for shared context**
+- **Mocked local test environment**
+- **GitHub Actions CI**
+
+It is fast, reliable, and designed for **scalability, team clarity, and agency use**.
 
 ---
 
-## 📂 Project Structure
+## ✨ Features
+
+- ⚡ Modern Playwright browser automation  
+- 🧠 Cucumber BDD with feature files  
+- 🏗️ Page Object Model architecture  
+- 🌍 Per-scenario shared world context  
+- 🧩 Mock login environment for deterministic tests  
+- 🔧 Environment loader  
+- 🤝 GitHub Actions CI pipeline  
+- 📁 Clear project structure  
+- ⭐ Agency-ready template  
+
+---
+
+## 🧱 Project Structure
 
 ```
-/features
-  /login
-    login.feature
-    login.steps.ts
-
-/pages
-  base.page.ts
-  login.page.ts
-
-/utils
-  testData.ts
-  waitHelpers.ts
-
-/hooks
-  hooks.ts
-
-/config
-  playwright.config.ts
-  env.ts
-
-/ci
-  ci.yml
+playwright-bdd-starter/
+├── config/
+│   └── env.ts
+├── features/
+│   └── login/
+│        ├── login.feature
+│        └── login.steps.ts
+├── hooks/
+│   └── hooks.ts
+├── mock/
+│   ├── login.html
+│   └── dashboard.html
+├── pages/
+│   ├── base.page.ts
+│   └── login.page.ts
+├── utils/
+│   └── testData.ts
+├── world.ts
+├── cucumber.js
+├── tsconfig.json
+└── package.json
 ```
-
-Each folder represents a clean layer in the automation architecture:
-- **features** → BDD scenarios  
-- **steps** → glue code  
-- **pages** → POM abstraction  
-- **utils** → helpers & test data  
-- **hooks** → test setup/teardown  
-- **config** → Playwright & env setup  
-- **ci** → continuous integration  
 
 ---
 
-## 🧪 Running Tests Locally
+## 🛠️ Installation
 
-### 1. Install dependencies
 ```
 npm install
 ```
 
-### 2. Install Playwright browsers
+Playwright installs browsers automatically on first run.
+
+---
+
+## ▶️ Running the Tests
+
+### **1. Start the mock server**
 ```
-npx playwright install
+npm run mock-server
 ```
 
-### 3. Set your environment
-Create a `.env.local` file:
+### **2. Run the test suite**
 ```
-BASE_URL=https://your-app.com
-USER_EMAIL=your-email
-USER_PASSWORD=your-password
+npx cucumber-js
 ```
 
-### 4. Run tests
+Expected output:
+
 ```
-npx cucumber-js --require-module ts-node/register
+1 scenario (1 passed)
+4 steps (4 passed)
 ```
 
 ---
 
-## 🏗 CI/CD with GitHub Actions
+## 📺 Recording a Demo (Optional)
 
-This repo includes a full `ci.yml` workflow:
+1. Run in headed mode:
+   ```
+   npx playwright test --headed
+   ```
+2. Record a short screen capture  
+3. Save to `/docs/demo.gif`  
+4. Embed in README:
 
-- Installs Node  
-- Installs dependencies  
-- Installs browsers  
-- Runs BDD tests  
-- Produces HTML + JSON reports  
-
-Ideal for PR pipelines and deployment gates.
-
----
-
-## 🧩 Example Scenario (Login)
-
-```gherkin
-Scenario: Login with valid credentials
-  Given I navigate to the login page
-  When I enter valid login details
-  And I submit the form
-  Then I should see my dashboard
+```md
+![Demo](docs/demo.gif)
 ```
 
 ---
 
-## 🧱 Example Page Object
+## 🧪 Continuous Integration
 
-```ts
-export class LoginPage extends BasePage {
-  emailField = '#email';
-  passwordField = '#password';
-  submitButton = '#submit';
+Automatically runs tests on push via GitHub Actions.
 
-  async login(email, password) {
-    await this.type(this.emailField, email);
-    await this.type(this.passwordField, text);
-  }
-}
-```
+Workflow file:  
+`.github/workflows/tests.yml`
 
 ---
 
-## 🤝 Perfect For Consulting Work
+## 🧩 Why This Template Exists (Agency Use Case)
 
-This template is designed to showcase senior-level skills and acts as a starting point for consulting engagements such as:
+I use this framework as the base for onboarding new QA automation clients.  
+It allows me to:
 
-### **➡️ Playwright → Cucumber BDD Migration**
-- Convert existing tests  
-- Create reusable steps  
-- Build POM structure  
-- Add CI + reports  
+- deliver working UI tests on day one  
+- implement POM + BDD standards quickly  
+- integrate into any CI/CD pipeline  
+- scale test coverage cleanly  
+- provide reliable automation with minimal setup time  
 
-### **➡️ Critical Flow Automation**
-- Login  
-- Signup  
-- Settings  
-- Checkout  
-- User journeys  
-
-Delivery time: **5–7 days** depending on scope.
+This is the same foundation I use for automation retainers and consulting engagements.
 
 ---
 
-## 📧 Contact / Portfolio (optional to fill later)
+## 📌 Roadmap
 
-- LinkedIn: https://www.linkedin.com/in/bmcghee98/
-- Email: brianamcghee98@gmail.com
-
----
-
-## 📄 License
-
-MIT.
+- Allure reporting  
+- API testing module  
+- Parallel execution  
+- Docker support  
+- More example feature files  
+- VSCode snippets  
 
 ---
 
-This project demonstrates clean engineering practices and is built to scale.  
-Use it as a starting point for your automation suite, or as part of a rapid consulting engagement.
+## 📄 License  
+MIT — see `LICENSE` for full text.

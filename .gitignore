@@ -1,3 +1,27 @@
-/node_modules
-package-lock.json
-package.json
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Output
+dist/
+build/
+
+# Environment
+.env*
+!.env.example
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+videos/
+screenshots/
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
