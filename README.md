@@ -1,156 +1,129 @@
-# Playwright + Cucumber BDD Starter
+# Playwright BDD Starter (Cucumber + TypeScript)
 
-**A senior-level, scalable UI automation framework built with TypeScript, Playwright, and Cucumber BDD — used as the foundation for my QA automation consulting work.**
+This project is a clean, minimal automation framework built with Playwright, Cucumber (BDD), and TypeScript.  
+It includes UI tests, API tests, a hybrid API/UI flow, a mock server, CI setup, and a simple page object structure.
 
-![build](https://img.shields.io/badge/Build-Passing-brightgreen)
-![playwright](https://img.shields.io/badge/Playwright-1.x-blueviolet)
-![cucumber](https://img.shields.io/badge/Cucumber-BDD-8.x-23b14d)
-![license](https://img.shields.io/badge/License-MIT-lightgrey)
-
----
-
-## 🚀 Overview
-
-This repository is a **clean, production-ready automation framework** powered by:
-
-- **Playwright** (modern browser automation)
-- **Cucumber BDD** (business-readable test scenarios)
-- **TypeScript** (strong typing and maintainability)
-- **Page Object Model (POM)**
-- **World injection for shared context**
-- **Mocked local test environment**
-- **GitHub Actions CI**
-
-It is fast, reliable, and designed for **scalability, team clarity, and agency use**.
+The goal is to show how an SDET structures and maintains an automation framework:  
+clear folders, reusable steps, hooks, environment state, and reliable CI execution.
 
 ---
 
-## ✨ Features
+## 🔧 Tech Stack
 
-- ⚡ Modern Playwright browser automation
-- 🧠 Cucumber BDD with feature files
-- 🏗️ Page Object Model architecture
-- 🌍 Per-scenario shared world context
-- 🧩 Mock login environment for deterministic tests
-- 🔧 Environment loader
-- 🤝 GitHub Actions CI pipeline
-- 📁 Clear project structure
-- ⭐ Agency-ready template
+- Playwright (browser automation)
+- Cucumber.js (Gherkin BDD)
+- TypeScript
+- GitHub Actions (CI)
+- Express mock server (for API endpoints)
+- Page Object Model (POM)
 
 ---
 
-## 🧱 Project Structure
+## 📁 Project Structure
 
 ```
-playwright-bdd-starter/
-├── config/
-│   └── env.ts
-├── features/
-│   └── login/
-│        ├── login.feature
-│        └── login.steps.ts
-├── hooks/
-│   └── hooks.ts
-├── mock/
-│   ├── login.html
-│   └── dashboard.html
-├── pages/
-│   ├── base.page.ts
-│   └── login.page.ts
-├── utils/
-│   └── testData.ts
-├── world.ts
-├── cucumber.js
+.
+├── features/              # Feature files (BDD scenarios)
+├── steps/                 # Step definitions
+├── pages/                 # Page Objects
+├── hooks/                 # Before/After hooks (browser, tracing, state)
+├── utils/                 # Helpers and shared utilities
+├── mock/                  # Static HTML mock UI (login + dashboard)
+├── mock-server.js         # Express server for API endpoints
+├── cucumber.js            # Cucumber configuration
 ├── tsconfig.json
-└── package.json
+├── package.json
 ```
 
 ---
 
-## 🛠️ Installation
+## 🚀 What This Framework Demonstrates
 
-```
-npm install
-```
+### **UI Tests**
+- Login flow
+- Dashboard rendering
+- Page Objects for reusable interactions
 
-Playwright installs browsers automatically on first run.
+### **API + UI Hybrid Test**
+- Create a record via API
+- Fetch and display records on the mock dashboard
+- Validate the created record appears in the UI
+
+### **Mock Backend**
+The mock server provides:
+- `POST /api/create` — create a record
+- `GET /api/records` — return all created records
+- Static serving of HTML pages
+
+Records are stored in memory during the server session.
 
 ---
 
-## ▶️ Running the Tests
+## 🧪 Running Tests
 
-### **1. Start the mock server**
-
+### Start the mock server:
 ```
 npm run mock-server
 ```
 
-### **2. Run the test suite**
-
+### Execute the full suite:
 ```
 npx cucumber-js
 ```
 
-Expected output:
-
+### Run with tags:
+PowerShell:
 ```
-1 scenario (1 passed)
-4 steps (4 passed)
+$env:TAGS='@auth'; npx cucumber-js
 ```
 
----
-
-## 📺 Recording a Demo (Optional)
-
-1. Run in headed mode:
-   ```
-   npx playwright test --headed
-   ```
-2. Record a short screen capture
-3. Save to `/docs/demo.gif`
-4. Embed in README:
-
-```md
-![Demo](docs/demo.gif)
+Mac/Linux:
+```
+TAGS=@auth npx cucumber-js
 ```
 
 ---
 
-## 🧪 Continuous Integration
+## 🧷 Hooks & Artifacts
 
-Automatically runs tests on push via GitHub Actions.
+The framework captures:
+- Traces on failure
+- Screenshots on failure
+- Reusable browser instance
+- Storage state for authenticated flows
 
-Workflow file:  
-`.github/workflows/tests.yml`
-
----
-
-## 🧩 Why This Template Exists (Agency Use Case)
-
-I use this framework as the base for onboarding new QA automation clients.  
-It allows me to:
-
-- deliver working UI tests on day one
-- implement POM + BDD standards quickly
-- integrate into any CI/CD pipeline
-- scale test coverage cleanly
-- provide reliable automation with minimal setup time
-
-This is the same foundation I use for automation retainers and consulting engagements.
+Hooks are defined in `hooks/hooks.ts`.
 
 ---
 
-## 📌 Roadmap
+## ⚙️ CI Pipeline
 
-- Allure reporting
-- API testing module
-- Parallel execution
-- Docker support
-- More example feature files
-- VSCode snippets
+GitHub Actions runs:
+- Dependency install
+- Mock server
+- Playwright tests
+- Uploads traces and screenshots as artifacts
+
+Workflow located at:
+```
+.github/workflows/playwright.yml
+```
 
 ---
 
-## 📄 License
+## 📌 Notes for Reviewers / Recruiters
 
-MIT — see `LICENSE` for full text.
+This repository demonstrates:
+- Ability to set up an automation framework from scratch
+- Familiarity with Playwright and Cucumber
+- Use of Page Objects
+- API + UI synchronization
+- Debugging and maintaining TypeScript test code
+- CI integration and test reliability patterns
+
+The framework is intentionally kept simple, clear, and readable.
+
+---
+
+## 📚 License
+MIT
