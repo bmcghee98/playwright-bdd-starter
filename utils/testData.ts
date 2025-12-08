@@ -4,5 +4,5 @@ export const testData = {
   validUser: {
     email: USER_EMAIL,
     password: USER_PASSWORD,
-  }
+  },
 };

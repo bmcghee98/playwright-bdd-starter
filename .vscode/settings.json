@@ -1,0 +1,17 @@
+{
+  "editor.formatOnSave": true,
+
+  // Use Prettier for TS/JS
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // Only run Prettier in projects that have a Prettier config
+  "prettier.requireConfig": true,
+
+  // Disable other formatters that interfere
+  "eslint.format.enable": false
+}
