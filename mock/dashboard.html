@@ -1,10 +1,39 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Dashboard</title>
-  </head>
-  <body>
-    <h1>Welcome to the dashboard!</h1>
-  </body>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .record { padding: 8px; border: 1px solid #ccc; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Dashboard</h1>
+  <p>Welcome!</p>
+
+  <h2>Records</h2>
+  <div id="records"></div>
+
+  <script>
+    async function loadRecords() {
+      const res = await fetch('/api/records');
+      const data = await res.json();
+
+      const container = document.getElementById('records');
+      container.innerHTML = '';
+
+      data.forEach(r => {
+  const div = document.createElement('div');
+  div.className = 'record';
+  div.setAttribute('data-name', r.name);
+  div.setAttribute('data-id', r.id);
+  div.innerText = `${r.id} — ${r.name}`;
+  container.appendChild(div);
+});
+
+    }
+
+    loadRecords();
+  </script>
+</body>
 </html>

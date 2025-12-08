@@ -14,6 +14,11 @@ Then('I see the welcome message', async function (this: CustomWorld) {
 });
 
 Then('I see the new record', async function (this: CustomWorld) {
-  const dashboard = new DashboardPage(this.page);
-  await expect(this.page.locator(`text=${this.record.name}`)).toBeVisible();
+  if (!this.record) throw new Error(`this.record is undefined`);
+  if (!this.record.id) throw new Error(`Record missing ID`);
+
+  const selector = `[data-id="${this.record.id}"]`;
+  const element = this.page.locator(selector);
+
+  await element.waitFor({ state: 'visible' });
 });

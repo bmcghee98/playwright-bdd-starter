@@ -13,7 +13,6 @@ module.exports = {
     publishQuiet: true,
     paths: ['features/**/*.feature'],
     tags: process.env.TAGS || '',
-    //parallel: 3,
-    retry: 2,
+    retry: 1,
   },
 };

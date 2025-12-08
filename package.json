@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "mock-server": "http-server ./mock -p 3001"
+    "mock-server": "node mock-server.js"
   },
   "keywords": [],
   "author": "",
@@ -43,6 +43,7 @@
     "emoji-regex": "^8.0.0",
     "error-stack-parser": "^2.1.4",
     "escape-string-regexp": "^1.0.5",
+    "express": "^5.2.1",
     "figures": "^3.2.0",
     "find-up-simple": "^1.0.1",
     "glob": "^13.0.0",
