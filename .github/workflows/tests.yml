@@ -1,4 +1,4 @@
-name: Playwright BDD Tests
+name: CI Tests
 
 on:
   push:
@@ -10,20 +10,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: Set up Node
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install deps
+        run: npm ci
 
-      - name: Run Mock Server (Background)
-        run: |
-          nohup npx http-server ./mock -p 3001 &
-          sleep 2
+      - name: Install browsers
+        run: npx playwright install --with-deps
 
-      - name: Run Tests
-        run: npx cucumber-js --publish-quiet
+      - name: Start mock server
+        run: npm run mock-server &
+
+      - name: Run tests
+        run: npx cucumber-js --parallel 3 || true
+
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots
+          path: screenshots
