@@ -11,6 +11,12 @@ let browser: Browser;
 const STORAGE_STATE_PATH = path.join(__dirname, '..', 'storageState.json');
 
 Before(async function (this: CustomWorld) {
+  await this.page.context().tracing.start({
+    screenshots: true,
+    snapshots: true,
+    sources: true,
+  });
+
   // 1) Launch the browser once and reuse it
   if (!browser) {
     browser = await chromium.launch();
@@ -43,12 +49,23 @@ Before(async function (this: CustomWorld) {
 });
 
 After(async function (this: CustomWorld, scenario) {
-  if (scenario.result?.status === Status.FAILED) {
-    await this.page.screenshot({ path: `screenshots/${Date.now()}.png` });
-  }
+  After(async function (this: CustomWorld, scenario) {
+    const context = this.page.context();
 
-  // Close only the context; keep browser alive for other scenarios
-  await this.page.context().close();
+    if (scenario.result?.status === Status.FAILED) {
+      // Save trace
+      const tracePath = `traces/${Date.now()}-trace.zip`;
+      await context.tracing.stop({ path: tracePath });
+
+      // Save screenshot
+      await this.page.screenshot({ path: `screenshots/${Date.now()}.png` });
+    } else {
+      // Stop tracing without saving
+      await context.tracing.stop();
+    }
+
+    await context.close();
+  });
 });
 
 // (Optional) you can add an AfterAll later to close browser when Cucumber finishes

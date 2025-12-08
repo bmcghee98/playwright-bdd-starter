@@ -14,5 +14,6 @@ module.exports = {
     paths: ['features/**/*.feature'],
     tags: process.env.TAGS || '',
     //parallel: 3,
+    retry: 2,
   },
 };
