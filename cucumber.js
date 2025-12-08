@@ -6,15 +6,13 @@ module.exports = {
       'hooks/**/*.ts',
       'steps/**/*.ts',
       './world.ts',
-      './config/env.ts'
+      './config/env.ts',
     ],
-    requireModule: [
-      'ts-node/register'
-    ],
-    format: ["usage", "progress"],
+    requireModule: ['ts-node/register'],
+    format: ['usage', 'progress'],
     publishQuiet: true,
-    paths: [
-      'features/**/*.feature',
-    ]
-  }
+    paths: ['features/**/*.feature'],
+    tags: process.env.TAGS || '',
+    //parallel: 3,
+  },
 };

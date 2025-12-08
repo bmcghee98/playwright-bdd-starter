@@ -12,3 +12,8 @@ Then('I see the welcome message', async function (this: CustomWorld) {
   const dashboard = new DashboardPage(this.page);
   await expect(dashboard.header).toContainText('Dashboard');
 });
+
+Then('I see the new record', async function (this: CustomWorld) {
+  const dashboard = new DashboardPage(this.page);
+  await expect(this.page.locator(`text=${this.record.name}`)).toBeVisible();
+});

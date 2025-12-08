@@ -1,3 +1,4 @@
+@smoke @auth
 Feature: User Login
   As a valid user
   I want to log into the application

@@ -1,4 +1,5 @@
 # Playwright + Cucumber BDD Starter
+
 **A senior-level, scalable UI automation framework built with TypeScript, Playwright, and Cucumber BDD — used as the foundation for my QA automation consulting work.**
 
 ![build](https://img.shields.io/badge/Build-Passing-brightgreen)
@@ -26,15 +27,15 @@ It is fast, reliable, and designed for **scalability, team clarity, and agency u
 
 ## ✨ Features
 
-- ⚡ Modern Playwright browser automation  
-- 🧠 Cucumber BDD with feature files  
-- 🏗️ Page Object Model architecture  
-- 🌍 Per-scenario shared world context  
-- 🧩 Mock login environment for deterministic tests  
-- 🔧 Environment loader  
-- 🤝 GitHub Actions CI pipeline  
-- 📁 Clear project structure  
-- ⭐ Agency-ready template  
+- ⚡ Modern Playwright browser automation
+- 🧠 Cucumber BDD with feature files
+- 🏗️ Page Object Model architecture
+- 🌍 Per-scenario shared world context
+- 🧩 Mock login environment for deterministic tests
+- 🔧 Environment loader
+- 🤝 GitHub Actions CI pipeline
+- 📁 Clear project structure
+- ⭐ Agency-ready template
 
 ---
 
@@ -79,11 +80,13 @@ Playwright installs browsers automatically on first run.
 ## ▶️ Running the Tests
 
 ### **1. Start the mock server**
+
 ```
 npm run mock-server
 ```
 
 ### **2. Run the test suite**
+
 ```
 npx cucumber-js
 ```
@@ -103,8 +106,8 @@ Expected output:
    ```
    npx playwright test --headed
    ```
-2. Record a short screen capture  
-3. Save to `/docs/demo.gif`  
+2. Record a short screen capture
+3. Save to `/docs/demo.gif`
 4. Embed in README:
 
 ```md
@@ -127,11 +130,11 @@ Workflow file:
 I use this framework as the base for onboarding new QA automation clients.  
 It allows me to:
 
-- deliver working UI tests on day one  
-- implement POM + BDD standards quickly  
-- integrate into any CI/CD pipeline  
-- scale test coverage cleanly  
-- provide reliable automation with minimal setup time  
+- deliver working UI tests on day one
+- implement POM + BDD standards quickly
+- integrate into any CI/CD pipeline
+- scale test coverage cleanly
+- provide reliable automation with minimal setup time
 
 This is the same foundation I use for automation retainers and consulting engagements.
 
@@ -139,14 +142,15 @@ This is the same foundation I use for automation retainers and consulting engage
 
 ## 📌 Roadmap
 
-- Allure reporting  
-- API testing module  
-- Parallel execution  
-- Docker support  
-- More example feature files  
-- VSCode snippets  
+- Allure reporting
+- API testing module
+- Parallel execution
+- Docker support
+- More example feature files
+- VSCode snippets
 
 ---
 
-## 📄 License  
+## 📄 License
+
 MIT — see `LICENSE` for full text.

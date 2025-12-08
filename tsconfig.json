@@ -9,7 +9,7 @@
     "types": ["node", "cucumber"],
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "outDir": "dist",
+    "outDir": "dist"
   },
   "include": [
     "features/**/*.ts",

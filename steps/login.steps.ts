@@ -6,7 +6,7 @@ let loginPage: LoginPage;
 
 Given('I navigate to the login page', async function (this: CustomWorld) {
   await this.page.goto('http://localhost:3001/login.html');
-  console.log("Current URL:", this.page.url());
+  console.log('Current URL:', this.page.url());
   loginPage = new LoginPage(this.page);
 });
 

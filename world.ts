@@ -3,6 +3,8 @@ import { Page } from '@playwright/test';
 
 export class CustomWorld extends World {
   page!: Page;
+  record?: any;
+
   constructor(options: IWorldOptions) {
     super(options);
   }

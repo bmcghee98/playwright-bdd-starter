@@ -16,17 +16,17 @@ export default defineConfig({
     headless: true,
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
-    video: 'retain-on-failure'
+    video: 'retain-on-failure',
   },
 
   projects: [
     {
       name: 'chromium',
-      use: { browserName: 'chromium' }
+      use: { browserName: 'chromium' },
     },
     {
       name: 'webkit',
-      use: { browserName: 'webkit' }
-    }
-  ]
+      use: { browserName: 'webkit' },
+    },
+  ],
 });
